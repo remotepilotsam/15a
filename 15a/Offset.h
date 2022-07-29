@@ -13,9 +13,33 @@ private:
 	int i; //Saves int offset
 public:
 	class InvalidCharacter //Exception class for invalid character
-	{ };
+	{
+	private:
+		char a;
+	public:
+		InvalidCharacter(char r)
+		{
+			a = r;
+		}
+		char getA() const
+		{
+			return a;
+		}
+	};
 	class InvalidInterger //Exception class for invalid interger
-	{ };
+	{
+	private:
+		int t;
+	public:
+		InvalidInterger(int e)
+		{
+			t = e;
+		}
+		int getE() const
+		{
+			return t;
+		}
+	};
 	RangeOffset() //Constructor
 	{
 		i = 0;

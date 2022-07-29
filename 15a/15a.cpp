@@ -19,25 +19,26 @@ int main()
     try
     {
         userInput.setChar(cInput);
-        userInput.setInt(iInput);
+        userInput.setInt(iInput); 
         cout << "Offset: " << userInput.character(cInput, iInput) << "\n\n";
     }
     catch (RangeOffset::InvalidCharacter) //Throws Invalid Character in the user doesn't enter a letter
     {
-        cout << "Invalid entry" << endl;
+        cout << "Invalid character entry" << endl;
     }
     catch (RangeOffset::InvalidInterger) //Throws Invalid Interger if the user doesnt enter a whole number
     {
-        cout << "Invalid Entry" << endl;
+        cout << "Invalid Interger Entry" << endl;
     }
     system("pause");
     return 0;
 }
 
-char RangeOffset::character(char start, int offset)
+char RangeOffset::character(char start, int offset) //Function to run the offset calculation
 {
-
-    return start, offset;
+    char target;
+    target = offset + start;
+    return target;
 }
 void RangeOffset::setChar(char h)
 {
@@ -47,17 +48,17 @@ void RangeOffset::setChar(char h)
     }
     else
     {
-        throw InvalidCharacter();
+        throw InvalidCharacter(h);
     }
 }
-void RangeOffset::setInt(int n)
+void RangeOffset::setInt(int n) //Fix it
 {
-    if (isdigit(n) == true) //Verifies the users input is a whole number
+    if (n >= -256 && n <= 256) //Verifies the users input is a whole number
     {
         i = n;
     }
     else
     {
-        throw InvalidInterger();
+        throw InvalidInterger(n);
     }
 }
