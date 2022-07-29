@@ -18,17 +18,16 @@ int main()
     cin >> iInput; //Gets user int input
     try
     {
-        userInput.setChar(cInput);
-        userInput.setInt(iInput); 
+        userInput.setChar(cInput); 
         cout << "Offset: " << userInput.character(cInput, iInput) << "\n\n";
     }
     catch (RangeOffset::InvalidCharacter) //Throws Invalid Character in the user doesn't enter a letter
     {
-        cout << "Invalid character entry" << endl;
+        cout << "Invalid Character Entry" << endl;
     }
-    catch (RangeOffset::InvalidInterger) //Throws Invalid Interger if the user doesnt enter a whole number
+    catch (RangeOffset::InvalidRange) //Throws Invalid Interger if the user doesnt enter a whole number
     {
-        cout << "Invalid Interger Entry" << endl;
+        cout << "Invalid Range" << endl;
     }
     system("pause");
     return 0;
@@ -36,8 +35,10 @@ int main()
 
 char RangeOffset::character(char start, int offset) //Function to run the offset calculation
 {
+    RangeOffset rangeVerify;
     char target;
     target = offset + start;
+    rangeVerify.setRange(target);
     return target;
 }
 void RangeOffset::setChar(char h)
@@ -51,14 +52,14 @@ void RangeOffset::setChar(char h)
         throw InvalidCharacter(h);
     }
 }
-void RangeOffset::setInt(int n) //Fix it
+void RangeOffset::setRange(char n) //Fix it
 {
-    if (n >= -256 && n <= 256) //Verifies the users input is a whole number
+    if () //Verifies the users input is within range
     {
         i = n;
     }
     else
     {
-        throw InvalidInterger(n);
+        throw InvalidRange(n);
     }
 }

@@ -26,12 +26,12 @@ public:
 			return a;
 		}
 	};
-	class InvalidInterger //Exception class for invalid interger
+	class InvalidRange //Exception class for invalid interger
 	{
 	private:
 		int t;
 	public:
-		InvalidInterger(int e)
+		InvalidRange(int e)
 		{
 			t = e;
 		}
@@ -47,12 +47,12 @@ public:
 	}
 	char character(char, int); //Runs the offsetting
 	void setChar(char); //Mutator function to set character
-	void setInt(int); //Mutator function to set interger
+	void setRange(char); //Mutator function to set range
 	char getChar() const //Accesor function to get character
 	{
 		return c;
 	}
-	int getInt() const //Accesor function to get interger
+	char getRange() const //Accesor function to get range
 	{
 		return i;
 	}
