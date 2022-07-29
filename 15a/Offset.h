@@ -1,6 +1,9 @@
 //Samuel Bryan
 //CIS 1202 800
 //July 29th, 2022
+#include <iostream>
+#include <cctype>
+
 #ifndef OFFSET_H
 #define OFFSET_H
 
@@ -31,7 +34,7 @@ public:
 	private:
 		int t;
 	public:
-		InvalidRange(int e)
+		InvalidRange(int e) //Constructor
 		{
 			t = e;
 		}

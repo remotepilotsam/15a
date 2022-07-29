@@ -3,6 +3,7 @@
 //July 29th, 2022
 
 #include <iostream>
+#include <cctype>
 #include "Offset.h"
 
 using namespace std;
@@ -21,45 +22,44 @@ int main()
         userInput.setChar(cInput); 
         cout << "Offset: " << userInput.character(cInput, iInput) << "\n\n";
     }
-    catch (RangeOffset::InvalidCharacter) //Throws Invalid Character in the user doesn't enter a letter
+    catch (RangeOffset::InvalidCharacter y) //Throws Invalid Character in the user doesn't enter a letter
     {
-        cout << "Invalid Character Entry" << endl;
+        cout << "Invalid Character Entry " << y.getA() << endl;
     }
-    catch (RangeOffset::InvalidRange) //Throws Invalid Interger if the user doesnt enter a whole number
+    catch (RangeOffset::InvalidRange z) //Throws Invalid Interger if the user doesnt enter a whole number
     {
-        cout << "Invalid Range" << endl;
+        cout << "Invalid Range " << z.getE() << endl;
     }
     system("pause");
     return 0;
 }
-
 char RangeOffset::character(char start, int offset) //Function to run the offset calculation
 {
     RangeOffset rangeVerify;
     char target;
     target = offset + start;
-    rangeVerify.setRange(target);
+    rangeVerify.setRange(target); //Verifies range of target before returning target
     return target;
 }
 void RangeOffset::setChar(char h)
 {
-    if (h >= 'a' && h <= 'z' || (h >= 'A' && h <= 'Z')) //Verifies the users input is a letter
+    if ((h >= 'a' && h <= 'z') || (h >= 'A' && h <= 'Z')) //Verifies the users input is a letter
     {
         c = h;
     }
     else
     {
-        throw InvalidCharacter(h);
+        throw InvalidCharacter(h); //Throws invalid character exception if the input is not a character
     }
 }
 void RangeOffset::setRange(char n) //Fix it
 {
-    if () //Verifies the users input is within range
+    if ((isupper(n) < 26) && (isupper(n) > -26) || ((islower(n) < 26) && (islower(n) > 26))) //Verifies the users input is within range
     {
         i = n;
     }
     else
     {
-        throw InvalidRange(n);
+        throw InvalidRange(n); //Throws invalid range exception if there is an error
     }
 }
